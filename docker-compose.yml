@@ -6,7 +6,7 @@ services:
       context: ./
       dockerfile: ./containers/sonarqube-analyze/Dockerfile
     environment:
-      - SonarHostUrl="http://sonarqube:9000"
+      - "SonarHostUrl=http://sonarqube:9000"
     depends_on:
       - sonarqube
 
