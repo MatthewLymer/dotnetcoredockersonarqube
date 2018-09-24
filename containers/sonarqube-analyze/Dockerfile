@@ -6,7 +6,6 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends default-jre
 
 COPY ./src ./src
-COPY ./tests ./tests
 COPY ./dotnetcoredockersonarqube.sln ./
 COPY ./containers/sonarqube-analyze/docker-entrypoint.sh /usr/local/bin/
 
