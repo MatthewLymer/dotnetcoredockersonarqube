@@ -5,6 +5,9 @@ until [ "$(curl --silent --output /dev/null --write-out '%{http_code}' $SonarHos
     sleep 3
 done
 
+echo Found $SonarHostUrl, waiting 10 seconds
+sleep 10
+
 dotnet sonarscanner begin /k:"MySolution" /d:"sonar.host.url"=$SonarHostUrl
-dotnet build /app/dotnetcoredockersonarqube.sln
+dotnet build $DotnetCoreSlnPath
 dotnet sonarscanner end

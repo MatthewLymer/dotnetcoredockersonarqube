@@ -5,10 +5,14 @@ services:
     build:
       context: ./
       dockerfile: ./containers/sonarqube-analyze/Dockerfile
+    environment:
+      - SonarHostUrl="http://sonarqube:9000"
     depends_on:
       - sonarqube
 
   sonarqube:
-    image: sonarqube:6.7.5
+    build:
+      context: ./
+      dockerfile: ./containers/sonarqube/Dockerfile
     ports:
       - 9000:9000

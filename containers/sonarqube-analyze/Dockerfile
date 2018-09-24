@@ -13,9 +13,9 @@ COPY ./containers/sonarqube-analyze/docker-entrypoint.sh /usr/local/bin/
 ENV PATH "$PATH:/root/.dotnet/tools"
 
 ENV SonarHostUrl "http://sonarqube:9000"
+ENV DotnetCoreSlnPath "/app/dotnetcoredockersonarqube.sln"
+ENV DotnetCoreSlnName "MySolution"
 
 RUN dotnet tool install --global dotnet-sonarscanner
-
-# RUN chmod -R +xr /root/.dotnet/tools/.store/dotnet-sonarscanner
 
 ENTRYPOINT ["docker-entrypoint.sh"]
